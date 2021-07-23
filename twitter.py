@@ -13,6 +13,7 @@ user=api.me()
 search='@Liliaa_rt'
 
 
+
 nrTweets=500
 
 
@@ -20,12 +21,11 @@ for tweet in tweepy.Cursor(api.search, search).items(nrTweets):
     try :
         print('Tweet Liked')
         tweet.retweet()
-        time.sleep(10)
         tweets = api.home_timeline(count=1)
         tweet = tweets[0]
         print(f"Liking tweet {tweet.id} of {tweet.author.name}")
         api.create_favorite(tweet.id)
-        tweet.favorite()
+        time.sleep(10)
     except tweepy.TweepError as e:
         print(e.reason)
     except StopIteration:
