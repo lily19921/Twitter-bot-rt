@@ -62,7 +62,7 @@ def follow_followers(api):
         if not follower.following:
             try:
                 follower.follow()
-                time.sleep(60)
+                time.sleep(70)
                 logger.info(f"Following {follower.name}")
             except tweepy.error.TweepError:
                 pass
@@ -84,7 +84,7 @@ def retweet_tweets_with_hashtag(api, need_hashtags):
                         api.retweet(tweet.id)
                         tweet.favorite()
                         logger.info(f"Retweeted tweet from {tweet.user.name}")
-                        time.sleep(60)
+                        time.sleep(65)
             except tweepy.TweepError:
                 logger.error("Error on retweet", exc_info=True)
     else:
@@ -94,6 +94,7 @@ def retweet_tweets_with_hashtag(api, need_hashtags):
 
 while True:
     follow_followers(api)
+    time.sleep(25)
     retweet_tweets_with_hashtag(api, ["#smallstreamer"])
     logger.info("Waiting 1 ...")
     time.sleep(30)
