@@ -94,9 +94,9 @@ def retweet_tweets_with_hashtag(api, need_hashtags):
 
 while True:
     follow_followers(api)
-    #time.sleep(25)
-    #retweet_tweets_with_hashtag(api, ["#smallstreamer"])
-    #logger.info("Waiting 1 ...")
+    time.sleep(25)
+    retweet_tweets_with_hashtag(api, ["#smallstreamer"])
+    logger.info("Waiting 1 ...")
     time.sleep(30)
     fav_retweet(api)
     logger.info("Waiting 2 ...")
