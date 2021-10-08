@@ -20,6 +20,6 @@ for tweet in tweepy.Cursor(api.search, search).items(nrTweets):
         tweet.favorite()
         time.sleep(60)
     except tweepy.TweepError as e:
-        #print(e.reason)
+        print(e.reason)
     except StopIteration:
         break
